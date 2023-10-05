@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include<math.h>
 
 int getNumberOfDigits(int n);
 bool isArmstrongNumber(int candidate);
@@ -14,8 +15,10 @@ int main()
 }
 
 bool isArmstrongNumber(int candidate)
-{
-    int numberOfDigits = getNumberOfDigits(candidate);
+{   if(candidate<10){
+            true;
+            }
+    int numberOfDigits = log10(candidate)+1;
     int sum = 0;
     for (int i = candidate; i != 0; i /= 10)
     {
@@ -30,13 +33,3 @@ bool isArmstrongNumber(int candidate)
     return sum == candidate;
 }
 
-int getNumberOfDigits(int n)
-{
-    int sum = 0;
-    while (n != 0)
-    {
-        n /= 10;
-        ++sum;
-    }
-    return sum;
-}
